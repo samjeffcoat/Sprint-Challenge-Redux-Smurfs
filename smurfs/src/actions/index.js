@@ -8,7 +8,15 @@ export const ADDING_SMURF = "ADDING_SMURF";
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
 */
-
+export const getSmurfs = () => dispatch => {
+  dispatch({type: FETCHING_SMURF});
+  axios
+  .get(
+    'http://localhost:3333/smurfs/'
+  )
+  .then(res => dispatch({type: FETCHING_SMURF_SUCCESS, payload: res.data}))
+  .catch(err => console.log(err));
+}
 /*
   For this project you'll need at least 2 action creators for the main portion,
    and 2 more for the stretch problem.
