@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import {FETCHING_SMURF, FETCHING_SMURF_SUCCESS, ADDING_SMURF} from '../actions';
+import {FETCHING_SMURF, FETCHING_SMURF_SUCCESS, ADDING_SMURF, ADDING_SMURF_SUCCESS} from '../actions';
 const initialState= {
   smurfs: [],
   fetchingSmurfs: false,
@@ -43,6 +43,13 @@ return{
   isAdding: true,
   error: ' '
 };
+case ADDING_SMURF_SUCCESS:
+return {
+  ...state,
+  smurfs: action.payload,
+  isAdding: false,
+  error: ' '
+}
 default:
 return state;
   }
