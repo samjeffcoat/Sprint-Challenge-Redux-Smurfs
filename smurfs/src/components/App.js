@@ -21,7 +21,6 @@ class App extends Component {
           {this.props.smurfs.map((smurf, index) =>(
             <h4 className= "SmurfDiv"
             key= {index}
-            
             >
             {smurf.name}
             </h4>
