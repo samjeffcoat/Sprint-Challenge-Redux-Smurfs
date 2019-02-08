@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import {FETCHING_SMURF, FETCHING_SMURF_SUCCESS, ADDING_SMURF, ADDING_SMURF_SUCCESS} from '../actions';
+import {FETCHING_SMURF, FETCHING_SMURF_SUCCESS, ADDING_SMURF, ADDING_SMURF_SUCCESS, DELETING_SMURF, SMURF_DELETED} from '../actions';
 const initialState= {
   smurfs: [],
   fetchingSmurfs: false,
@@ -49,6 +49,18 @@ return {
   smurfs: action.payload,
   isAdding: false,
   error: ' '
+}
+case DELETING_SMURF:
+return{
+  ...state,
+  deletingSmurf: true,
+  error: ' '
+}
+case SMURF_DELETED:
+return{
+  ...state,
+  deletingSmurf: false,
+  error : ' '
 }
 default:
 return state;
