@@ -3,6 +3,8 @@ export const FETCHING_SMURF = "FETCHING_SMURF";
 export const FETCHING_SMURF_SUCCESS = "FETCHING_SMURF_SUCCESS";
 export const ADDING_SMURF = "ADDING_SMURF";
 export const ADDING_SMURF_SUCCESS = "ADDING_SMURF_SUCCESS";
+export const DELETING_SMURF = " DELETING_SMURF ";
+export const SMURF_DELETED = "SMURF_DELETED "
 
 
 /* 
@@ -27,6 +29,17 @@ export const addNewSmurf = (smurf) => dispatch => {
     dispatch({type: ADDING_SMURF_SUCCESS, payload: res.data});
   })
   .catch(err => console.log(err));
+}
+
+export const deleteSmurf = (id) => dispatch => {
+  dispatch({ type: DELETING_SMURF});
+  axios
+  .delete(`http://localhost:3333/smurfs/${id}`)
+  .then(res => {
+    dispatch({type: SMURF_DELETED,  payload: res.data}, {params: {id: id}});
+  })
+  .catch(err => console.log(err));
+
 }
 /*
   For this project you'll need at least 2 action creators for the main portion,
