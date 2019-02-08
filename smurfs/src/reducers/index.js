@@ -2,6 +2,15 @@
   Be sure to import in all of the action types from `../actions`
 */
 
+const initialState= {
+  smurfs: [],
+  fetchingSmurfs: false,
+   isAdding: false,
+   updatingSmurf: false,
+   deletingSmurf: false,
+   error: null
+
+}
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
  {
@@ -13,7 +22,31 @@
    error: null
  }
 */
-
+export const reducer = (state= initialState, action) =>{
+  switch(action.type) {
+    case FETCHING_SMURF:
+    return {
+      ...state, 
+      error: ' ',
+      fetchingSmurfs: true
+  };
+  case FETCHING_SMURF_SUCCESS:
+  return {
+    ...state,
+    fetchingSmurfs: false,
+    smurfs: action.payload,
+    error: ' '
+}
+case ADDING_SMURF:
+return{
+  ...state,
+  isAdding: true,
+  error: ' '
+};
+default:
+return state;
+  }
+}
 /*
   You'll only need one smurf reducer for this project.
   Feel free to export it as a default and import as rootReducer. 
