@@ -1,3 +1,9 @@
+import axios from 'axios';
+export const FETCHING_SMURF = "FETCHING_SMURF";
+export const FETCHING_SMURF_SUCCESS = "FETCHING_SMURF_SUCCESS";
+export const ADDING_SMURF = "ADDING_SMURF";
+
+
 /* 
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
